@@ -1,0 +1,63 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+header {
+  background-color: #1e293b;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.filters {
+  margin-top: 8px;
+}
+
+.filters button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  margin: 0 5px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.filters button:hover {
+  background-color: #2563eb;
+}
+
+#map {
+  height: calc(100% - 100px);
+  width: 100%;
+}
+
+#loader {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #facc15;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.logo {
+  height: 40px;
+  margin-bottom: 6px;
+}
+
