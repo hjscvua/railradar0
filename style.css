@@ -1,63 +1,80 @@
-body, html {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html, body {
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
-}
-
-header {
-  background-color: #1e293b;
-  color: #fff;
-  padding: 10px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 20px;
-}
-
-.filters {
-  margin-top: 8px;
-}
-
-.filters button {
-  background-color: #3b82f6;
-  color: white;
-  border: none;
-  margin: 0 5px;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.filters button:hover {
-  background-color: #2563eb;
+  background: #0f172a;
 }
 
 #map {
-  height: calc(100% - 100px);
+  height: 100%;
   width: 100%;
+}
+
+.top-bar {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(30, 41, 59, 0.9);
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+
+.logo {
+  height: 32px;
+  margin-right: 10px;
+}
+
+.app-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.filter-buttons {
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  background-color: rgba(30, 41, 59, 0.9);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+
+.filter-buttons button {
+  background: #3b82f6;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.filter-buttons button:hover {
+  background: #2563eb;
 }
 
 #loader {
   position: absolute;
-  top: 80px;
+  top: 140px;
   left: 50%;
   transform: translateX(-50%);
   background: #facc15;
   padding: 10px 20px;
   border-radius: 6px;
   font-weight: bold;
-  z-index: 1000;
+  z-index: 1001;
 }
-
-.logo {
-  height: 40px;
-  margin-bottom: 6px;
-}
-
