@@ -5,6 +5,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap contributors',
 }).addTo(map);
 
+// Filter function
 function filterStations(type) {
   allMarkers.forEach(({ marker, data }) => {
     const isRail = data.tags?.railway === 'station';
@@ -22,11 +23,15 @@ function filterStations(type) {
   });
 }
 
+// Get location and fetch stations
 navigator.geolocation.getCurrentPosition(async (position) => {
   const { latitude, longitude } = position.coords;
   map.setView([latitude, longitude], 14);
 
-  L.marker([latitude, longitude]).addTo(map).bindPopup("You are here").openPopup();
+  L.marker([latitude, longitude])
+    .addTo(map)
+    .bindPopup("You are here")
+    .openPopup();
 
   const radius = 2000;
   const query = `
@@ -49,15 +54,18 @@ navigator.geolocation.getCurrentPosition(async (position) => {
       const lat = station.lat;
       const lon = station.lon;
       const name = station.tags?.name || "Unnamed Station";
-      const type = station.tags?.station ? 'Metro' : 'Rail';
+      const type = station.tags?.station ? '🚇 Metro' : '🚉 Rail';
 
-      const marker = L.marker([lat, lon]).bindPopup(`${name}<br><b>${type} Station</b>`).addTo(map);
+      const marker = L.marker([lat, lon])
+        .bindPopup(`<strong>${name}</strong><br>${type}`)
+        .addTo(map);
+
       allMarkers.push({ marker, data: station });
     });
-  } catch (e) {
-    alert("Error fetching station data.");
-    console.error(e);
+  } catch (err) {
+    alert("Failed to load station data.");
+    console.error(err);
   }
 }, () => {
-  alert("Geolocation permission denied.");
+  alert("Geolocation access denied.");
 });
